@@ -1,0 +1,570 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>4 Configuração</title>
+
+</head>
+<body>
+<h1>4 Configuração</h1>
+
+<p>A maior parte da configuração do Tomcat é realizada em arquivos de $CATALINA_HOME/conf. Outras envolvem alterações em scripts e componentes.</p>
+
+<p>Esta seção explorará algumas configurações básicas. Outras configurações serão tratadas em seções a parte.</p>
+
+<p>Os principais arquivos de configuração são:</p>
+
+<ul>
+<li><code>server.xml</code> - principal arquivo de configuração.</li>
+<li><code>web.xml</code> - arquivo de configuração global para definir defaults para todas as aplicações Web (contém os mesmos elementos do web.xml contido em cada aplicação).</li>
+<li><code>tomcat-users.xml</code> - lista default de roles, usuários e senhas usadas pelo domínio UserDatabaseRealm para autenticação em serviços do Tomcat.</li>
+<li><code>catalina.policy</code> - políticas de segurança Java</li>
+<li><code>context.xml</code> - configuração default para todos os contextos dos hosts da instalação do Tomcat</li>
+</ul>
+
+
+<p>Após alterar qualquer arquivo de configuração, as alterações só entram em vigor com a reinicialização do servidor.</p>
+
+<h2>server.xml</h2>
+
+<p>Cada elemento filho do server.xml representa um objeto de configuração dentro da arquitetura do Tomcat. O elemento raiz é <code>&lt;Server&gt;</code> e representa todo o servidor. Um <code>&lt;Server&gt;</code> deve conter pelo menos um elemento <code>&lt;Service&gt;</code>, que contem um ou mais <code>&lt;Connector&gt;</code> (cada um em uma porta diferente) associado a um processador <code>&lt;Engine&gt;</code>, que contém um elemento <code>&lt;Host&gt;</code>. Cada um desses elementos pode ser configurado por sub-elementos e atributos, definindo portas, classes, timeouts, comportamentos, etc.</p>
+
+<p>Além de elementos <code>&lt;Service&gt;</code>, um <code>&lt;Server&gt;</code> tipicamente contém um ou mais <code>&lt;Listener&gt;</code> (que configura componentes que irão processar eventos do ciclo de vida do servidor) e um <code>&lt;GlobalNamingResources&gt;</code> que guarda um ou mais resources JNDI.</p>
+
+<p>A seguir um documento <code>server.xml</code> típico (javacodegeeks.com):</p>
+
+<pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;Server port="8005" shutdown="SHUTDOWN"&gt;
+  &lt;Listener className="org.apache.catalina.core.JasperListener" /&gt;
+  &lt;Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" /&gt;
+  &lt;Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" /&gt;
+  &lt;Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" /&gt;
+  &lt;Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" /&gt;
+
+  &lt;GlobalNamingResources&gt;
+    &lt;Resource name="UserDatabase" auth="Container"
+              type="org.apache.catalina.UserDatabase"
+              description="User database that can be updated and saved"
+              factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+              pathname="conf/tomcat-users.xml" /&gt;
+  &lt;/GlobalNamingResources&gt;
+
+  &lt;Service name="Catalina"&gt;
+    &lt;Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" /&gt;
+    &lt;Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /&gt;
+
+    &lt;Engine name="Catalina" defaultHost="localhost"&gt;
+
+      &lt;Realm className="org.apache.catalina.realm.LockOutRealm"&gt;
+        &lt;Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+               resourceName="UserDatabase"/&gt;
+      &lt;/Realm&gt;
+
+      &lt;Host name="localhost"  appBase="webapps"
+            unpackWARs="true" autoDeploy="true"&gt;
+        &lt;Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+               prefix="localhost_access_log." suffix=".txt"
+               pattern="%h %l %u %t "%r" %s %b" /&gt;
+          &lt;Context path="" docBase="ROOT"/&gt;
+             &lt;Context path="/teste" docBase="/home/helderdarocha/teste"
+                            reloadable="true" crossContext="true"/&gt;
+      &lt;/Host&gt;
+    &lt;/Engine&gt;
+  &lt;/Service&gt;
+&lt;/Server&gt;
+</code></pre>
+
+<p>Abaixo uma breve descrição desses principais elementos e atributos.</p>
+
+<p>Elemento raiz:</p>
+
+<ul>
+<li><code>&lt;Server&gt;</code> - raiz do documento. O atributo <code>port</code> informa a porta para onde é enviado o comando de shutdown do servidor. Se o valor for -1, a porta será desabilitada. O atributo <code>address</code> informa o IP ou nome da máquina que pode enviar comando de shutdown. Se ausente a máquina será localhost. O atributo <code>shutdown</code> informa a string de comando que deve ser recebida na porta informada para dar shutdown no servidor.</li>
+</ul>
+
+
+<p>Elementos filho:</p>
+
+<ul>
+<li><code>&lt;Listener&gt;</code> - um ou mais desses elementos informam classes que são notificadas em eventos específicos do ciclo de vida do servidor.</li>
+<li><code>&lt;GlobalNamingResources&gt;</code> - define resources acessíveis via JNDI e podem ser recuperados por nome (atributo <code>name</code>).</li>
+<li><code>&lt;Service&gt;</code> - cada um contém uma coleção de conectores (<code>&lt;Connector&gt;</code>)associados a um processador (<code>&lt;Engine&gt;</code>). Pode haver vários, cada um identificado com um nome (atributo <code>name</code>) diferente. Pode também haver um atributo <code>className</code> contendo o nome de uma classe que implementa a interface <code>org.apache.catalina.Service</code>.</li>
+</ul>
+
+
+<p>Sub-elementos de <code>&lt;Service&gt;</code></p>
+
+<ul>
+<li><code>&lt;Executor&gt;</code> - um pool de threads compartilhado que será compartilhado por todos os conectores. Permite definir um número mínimo (<code>minSpareThreads</code>) e máximo (<code>maxThreads</code>) de threads ativos e outros atributos de threads.</li>
+<li><code>&lt;Connector&gt;</code> - associado com uma porta TCP/IP (atributo <code>port</code>) para realizar interface com o cliente; pode ser um servidor web, um conector AJP ou outro. Pode haver mais de um. Pode conter zero ou mais <code>&lt;Valve&gt;</code> (filtros de processamento). Atributos estabelecem timeout (<code>connectionTimeout</code>), redirecionamento (<code>redirectPort</code>), limite de clientes, threads, executor, protocolo usado e muitas outras propriedades.</li>
+<li><code>&lt;Engine&gt;</code> - representa o processador que recebe todas as requisições de um dos conectores do serviço. Cada processador pode ter seu próprio diretório no sistema (<code>CATALINA_BASE</code>) Atributos permitem configurar threads, delays, rotas, etc. Além de <code>&lt;Host&gt;</code> pode conter <code>&lt;Realm&gt;</code> (domínio de segurança), <code>&lt;Valve&gt;</code> (filtros), <code>&lt;Listener&gt;</code> e <code>&lt;Cluster&gt;</code>.</li>
+</ul>
+
+
+<p>Outros elementos:</p>
+
+<ul>
+<li><code>&lt;Host&gt;</code> - um endereço virtual, declarado dentro de um <code>&lt;Engine&gt;</code> e pode conter realms, contextos, válvulas, clusters, etc.</li>
+<li><code>Context</code> - representa um contexto ou aplicação Web. Contextos também podem ser criados dinamicamente de várias formas.</li>
+<li><code>&lt;Realm&gt;</code> - usado em <code>&lt;Engine&gt;</code> ou <code>&lt;Host&gt;</code>, determina um domínio de segurança (banco de dados de usuários e grupos)</li>
+<li><code>&lt;Cluster&gt;</code> - configura clustering (replicação de sessão e atributos de contexto e deployment distribuído)</li>
+<li><code>&lt;Valve&gt;</code> - interceptador de requisições HTTP baseado em padrão (atributo <code>pattern</code>). O atributo <code>className</code> informa o nome da classe que implementa o Valve, o atributo <code>prefix</code> informa o nome do arquivo de log e <code>directory</code> onde o arquivo de logs será armazenado.</li>
+</ul>
+
+
+<p>Pode-se ter vários arquivos <code>server.xml</code> com configurações distintas, usando um nome diferente (tipicamente <code>server-nome.xml</code>). Para executá-los é preciso informar o nome de cada arquivo ao iniciar o Tomcat:</p>
+
+<pre><code>$ catalina.sh start -config /conf/server-dois.xml
+</code></pre>
+
+<h2>web.xml</h2>
+
+<p>Cada aplicação instalada em $CATALINA_HOME/webapps possui um arquivo WEB-INF/web.xml dentro de seu contexto. O arquivo web.xml localizado em $CATALINA_HOME/conf é idêntico, mas define defaults que podem ser sobrepostos em qualquer aplicação. Este arquivo é lido antes do web.xml de cada aplicação, de forma que qualquer configuração que for definido nele valerá para todas as aplicações. Isto inclui definições de listeners, variáveis, filtros e até servlets.</p>
+
+<h2>tomcat-users.xml</h2>
+
+<p>Este arquivo contém uma lista de usuários, grupos e senhas usadas para acessar aplicações através do domínio UserDatabaseRealm.</p>
+
+<pre><code>&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;tomcat-users&gt;
+      &lt;role rolename="tomcat"/&gt;
+      &lt;role rolename="role1"/&gt;
+      &lt;user username="tomcat" password="tomcat" roles="tomcat"/&gt;
+      &lt;user username="both" password="tomcat" roles="tomcat,role1"/&gt;
+      &lt;user username="role1" password="tomcat" roles="role1"/&gt;
+&lt;/tomcat-users&gt;
+</code></pre>
+
+<h2>catalina.policy</h2>
+
+<p>Um arquivo de policy determina permissões para um determinado escopo. O arquivo catalina.policy permite estabelecer restrições de uso e acesso para o Tomcat quando ele for iniciado com a opção <code>-security</code>. O escopo consiste de um conjunto de classes em Java e cada permissão estabelece o nível de acesso permitido.</p>
+
+<h2>catalina.properties</h2>
+
+<p>Este arquivo permite definir propriedades que serão reusadas no arquivo server.xml. Por exemplo, pode-se definir uma propriedade:</p>
+
+<pre><code>versao=3.55
+</code></pre>
+
+<p>e acessar em server.xml usando a notação <code>${...}</code>:</p>
+
+<pre><code>&lt;Valve version="${versao}" ...&gt;
+</code></pre>
+
+<h2>Configuração de contexto</h2>
+
+<p>Um contexto representa uma aplicação Web padrão, que é um arquivo WAR ou uma pasta contendo WEB-INF/web.xml de acordo com a especificação Java EE para aplicações Web.</p>
+
+<p>O contexto é um caminho virtual para a aplicação. É acessível via cliente Web (ex: http://localhost:8080/contexto)</p>
+
+<p>Há três maneiras de configurar um contexto (aplicação Web) no Tomcat:</p>
+
+<p>1) Declarando em server.xml (dentro de <code>&lt;Host&gt;</code>); o caminho, que é o identificador do contexto, é declarado no atributo <code>path</code>. O atributo <code>docBase</code> informa onde está a aplicação. Pode ser um caminho absoluto ou relativo à pasta appBase do Host:</p>
+
+<pre><code> &lt;Host name="localhost" appBase="webapps"&gt;
+    &lt;Context path="" docBase="ROOT"/&gt;
+    &lt;Context path="/extra" docBase="/opt/docs/extra"/&gt;
+&lt;/Host&gt;
+</code></pre>
+
+<p>2) Declarado em um arquivo (fragmento) de contexto e configurando a pasta do contexto. Neste caso o <code>path</code> é o nome do arquivo menos a extensão <code>.xml</code>. O arquivo contém apenas um elemento <code>&lt;Context&gt;</code> e sub elementos, e deve estar localizado em $CATALINA_HOME/conf/nome-do-engine/nome-do-host. Por exemplo, o contexto /admin é definido em $CATALINA_HOME/conf/Catalina/localhost/admin.xml, é acessível via http://localhost:8080/admin e contém:</p>
+
+<pre><code> &lt;Context docBase="${catalina.home}/server/webapps/admin" ...&gt;
+ &lt;/Context&gt;
+</code></pre>
+
+<p>3) Declarado em um componente WAR (que contém a pasta do contexo) depositado uma pasta de hot-deployment (o <code>&lt;Host&gt;</code> deve habilitar). Em uma instalação default, esta pasta é <code>webapps</code>. Neste caso o <code>path</code> é o nome do arquivo menos a extensão <code>.war</code> e a pasta é criada automaticamente.</p>
+
+<p>O arquivo <code>context.xml</code> de <code>conf/</code> permite definir propriedades globais para todos os contextos.</p>
+
+<h2>Pastas de configuração de processadores</h2>
+
+<p>Pastas dentro de <code>conf/</code> que têm o nome de processadores (engines), por exemplo <code>Catalina</code> contém configuração para contextos. Dentro da pasta de configuração pode haver uma ou mais pastas com os Hosts do processador, dentro dos quais são configurados os componentes de cada host.</p>
+
+<h2>Algumas configurações típicas</h2>
+
+<p>Configurações mais complexas (load balancing, clustering, etc.) serão exploradas em seções a parte.</p>
+
+<h3>Como criar instâncias diferentes</h3>
+
+<p>Crie uma pasta base para instâncias do Tomcat (CATALINA-BASE) onde a nova pasta será armazenada:</p>
+
+<pre><code>mkdir /opt/tomcat-instances/
+cd tomcat-instances/
+</code></pre>
+
+<p>Depois crie uma pasta para a instância:</p>
+
+<pre><code>mkdir site1
+cd site1
+</code></pre>
+
+<p>Copie a configuração do Tomcat para esta pasta, e crie versões vazias dos outros diretórios:</p>
+
+<pre><code>cp -a $CATALINA_HOME/conf .
+mkdir common logs temp server shared webapps work
+</code></pre>
+
+<p>Em server.xml altere a porta de Shutdown e as portas de quaisquer conectores, de forma que tenham valores diferentes da instância principal:</p>
+
+<pre><code>&lt;Server port="8007" shutdown="SHUTDOWN"&gt;
+    ...
+      &lt;Connector port="8081" .... redirectPort="8444" /&gt;
+</code></pre>
+
+<p>Para iniciar essa instância, define CATALINA_BASE com o caminho do diretório criado, e inicie o Tomcat normalmente:</p>
+
+<pre><code>$ set CATALINA_BASE="/opt/tomcat-instances/site1"
+$ set CATALINA_HOME="/opt/tomcat"
+$ export CATALINA_BASE CATALINA_HOME
+$ service tomcat start  
+</code></pre>
+
+<p>Ou crie um script próprio para essa inicialização.</p>
+
+<h3>Como trocar porta de serviço</h3>
+
+<p>A porta default de serviço para o Tomcat é 8080. Para trocar por outra porta, localize o Conector principal no arquivo server.xml:</p>
+
+<pre><code>&lt;Connector port="8080" protocol="HTTP/1.1"
+                   connectionTimeout="20000"
+                   redirectPort="8443" /&gt;
+</code></pre>
+
+<p>Mude a porta para o valor desejado e reinicie o servidor.</p>
+
+<h3>Como alterar configuração da JVM</h3>
+
+<p>Configurações da JVM podem ser alteradas através de opções da JVM passada através da variável de ambiente JAVA_OPTS, que pode ser declarada no script de execução ou via linha de comando.</p>
+
+<p>Algumas configurações típicas incluem alteração do tamanho do heap, da área de memória usada para classes (PermGen), propriedades usadas para gerenciamento via JMX (jconsole), etc.</p>
+
+<p>A linha abaixo declara algumas propriedades da JVM para o Tomcat:</p>
+
+<pre><code>JAVA_OPTS="-Xdebug -Xms384M -Xmx384M -Dfile.encoding=UTF-8"
+</code></pre>
+
+<h3>Como configurar hosts virtuais</h3>
+
+<p>Hosts virtuais podem ser configurados em Tomcat adicionando elementos <code>&lt;Host&gt;</code> adicionais associando o nome do host a um diretório diferente para webapps. Primeiro, é preciso ter o host virtual já configurado no servidor de nomes (ou estaticamente, para teste ou uso local), e apontando para o endereço onde está rodando o Tomcat. Por exemplo:</p>
+
+<pre><code>&lt;Engine name="Catalina" defaultHost="localhost"&gt;
+      &lt;Host name="localhost" appBase="webapps"&gt;
+           ...
+      &lt;/Host&gt;
+      &lt;Host name="www.samovar.com.br" appBase="/opt/hosts/samovar/webapps"&gt;
+           &lt;Alias&gt;samovar.com.br&lt;/Alias&gt;
+           &lt;Context path="" docBase="ROOT"/&gt;
+      &lt;/Host&gt;
+&lt;/Engine&gt;
+</code></pre>
+
+<p>Alias pode ser usado para adicionar aliases para o host.</p>
+
+<h2>Mais informações</h2>
+
+<p>http://tomcat.apache.org/tomcat-8.0-doc/config/</p>
+</body>
+</html>
